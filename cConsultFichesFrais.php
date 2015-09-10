@@ -4,6 +4,8 @@
  * @package default
  * @todo  RAS
  */
+ 
+ 
   $repInclude = './include/';
   require($repInclude . "_init.inc.php");
 
@@ -13,6 +15,10 @@
   }
   require($repInclude . "_entete.inc.html");
   require($repInclude . "_sommaire.inc.php");
+  
+  // Enregistrement des données relatives aux visiteur conecté
+  $infoUser=visiteurDepuisLogin($_SESSION['id'],$_SESSION['login']);
+  
   
   // acquisition des données entrées, ici le numéro de mois et l'étape du traitement
   $moisSaisi=lireDonneePost("lstMois", "");
