@@ -329,14 +329,16 @@ function ajouterLigneHF($idCnx, $unMois, $unIdVisiteur, $uneDateHF, $unLibelleHF
  * avec pour clés les identifiants des frais forfaitisés 
  * @return void  
  */
+ 
 function modifierEltsForfait($idCnx, $unMois, $unIdVisiteur, $desEltsForfait) {
-    $unMois=filtrerChainePourBD($unMois);
+    $connection=connecterServeurBD();
+	$unMois=filtrerChainePourBD($unMois);
     $unIdVisiteur=filtrerChainePourBD($unIdVisiteur);
     foreach ($desEltsForfait as $idFraisForfait => $quantite) {
         $requete = "update LigneFraisForfait set quantite = " . $quantite 
                     . " where idVisiteur = '" . $unIdVisiteur . "' and mois = '"
                     . $unMois . "' and idFraisForfait='" . $idFraisForfait . "'";
-      mysql_query($requete, $idCnx);
+      mysqli_query($connection,$requete);
     }
 }
 
@@ -385,5 +387,11 @@ function modifierEtatFicheFrais($idCnx, $unMois, $unIdVisiteur, $unEtat)
                "', dateModif = now() where idVisiteur ='" .
                $unIdVisiteur . "' and mois = '". $unMois . "'";
     mysqli_query($connection,$requete);
-}             
+}   
+
+function visiteurDepuisLogin($unID,$unLogin)
+{
+	$connection=connecterServeurBD();
+	return mysqli_query($connection, "select * from visiteur where id='".$unID."' and login='".$unLogin."'");
+}          
 ?>
