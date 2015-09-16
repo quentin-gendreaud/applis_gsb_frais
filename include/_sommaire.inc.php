@@ -34,13 +34,30 @@
               <a href="cAccueil.php" title="Page d'accueil">Accueil</a>
            </li>
            <li class="smenu">
-              <a href="cSeDeconnecter.php" title="Se déconnecter">Se déconnecter</a>
-           </li>
-           <li class="smenu">
               <a href="cSaisieFicheFrais.php" title="Saisie fiche de frais du mois courant">Saisie fiche de frais</a>
            </li>
            <li class="smenu">
               <a href="cConsultFichesFrais.php" title="Consultation de mes fiches de frais">Mes fiches de frais</a>
+           </li>
+		 <?php
+			if(strlen($_SESSION['id'])==4)
+			{
+		?>
+				</br><li> <strong>Pages Délégués : </strong></li>
+				<li class="smenu">
+					<a href="cStatsVisiteurs.php" title="Statistiques Visiteur">Statistique visiteurs</a>
+				</li>
+				<li class="smenu">
+					<a href="cListeFrais.php" title="Liste fiche de frais du mois courant">Liste fiches de frais</a>
+				</li>
+				<li class="smenu">
+					<a href="cValidFrais.php" title="Validation fiche de frais hors forfait">Liste hors forfait</a>
+				</li>
+		<?php
+			}
+		?>
+			</br></br><li class="smenu">
+              <a href="cSeDeconnecter.php" title="Se déconnecter">Se déconnecter</a>
            </li>
          </ul>
         <?php
