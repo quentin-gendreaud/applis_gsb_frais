@@ -169,7 +169,7 @@
             <legend>Nouvel élément hors forfait
             </legend>
             <p>
-              <label for="txtDateHF">* Date : </label>
+              <label for="txtDateHF">* Date :  (jj/mm/aaaa)</label>
               <input type="text" id="txtDateHF" name="txtDateHF" size="12" maxlength="10" 
                      title="Entrez la date d'engagement des frais au format JJ/MM/AAAA" 
                      value="<?php echo $dateHF; ?>" />
