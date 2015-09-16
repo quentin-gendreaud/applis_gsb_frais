@@ -393,5 +393,17 @@ function visiteurDepuisLogin($unID,$unLogin)
 {
 	$connection=connecterServeurBD();
 	return mysqli_query($connection, "select * from visiteur where id='".$unID."' and login='".$unLogin."'");
-}          
+}    
+
+function listeVisiteur()
+{
+	$connection=connecterServeurBD();
+	return mysqli_query($connection,"select * from visiteur");
+}  
+
+function listeHorsForfaitVisiteurEnCours($idVisiteur)
+{
+	$connection=connecterServeurBD();
+	return mysqli_query($connection,"select * from ligneFraisHorsForfait where idVisiteur='".$idVisiteur."' and Etat=0");
+}   
 ?>
